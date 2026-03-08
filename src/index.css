@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* SkillSwap Design System */
+    --background: 0 0% 100%;
+    --foreground: 217 76% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 217 76% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 76% 15%;
+
+    /* Navy Dark Blue Primary */
+    --primary: 217 76% 15%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Cement Grey Secondary */
+    --secondary: 220 14% 91%;
+    --secondary-foreground: 217 76% 15%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 217 30% 45%;
+
+    --accent: 217 76% 20%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 220 14% 88%;
+    --input: 220 14% 88%;
+    --ring: 217 76% 15%;
+
+    --radius: 0.75rem;
+
+    /* Custom SkillSwap tokens */
+    --navy: 217 76% 15%;
+    --navy-light: 217 60% 25%;
+    --navy-dark: 217 80% 10%;
+    --cement: 220 14% 91%;
+    --cement-dark: 220 14% 80%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(217 76% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(217 76% 15% / 0.1), 0 2px 4px -2px hsl(217 76% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(217 76% 15% / 0.1), 0 4px 6px -4px hsl(217 76% 15% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(217 76% 15% / 0.1), 0 8px 10px -6px hsl(217 76% 15% / 0.1);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 76% 15%) 0%, hsl(217 60% 25%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220 14% 96%) 0%, hsl(0 0% 100%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 217 76% 15%;
+    --sidebar-primary: 217 76% 15%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 91%;
+    --sidebar-accent-foreground: 217 76% 15%;
+    --sidebar-border: 220 14% 88%;
+    --sidebar-ring: 217 76% 15%;
+  }
+
+  .dark {
+    --background: 217 76% 8%;
+    --foreground: 220 14% 96%;
+
+    --card: 217 76% 12%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 217 76% 12%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 220 14% 96%;
+    --primary-foreground: 217 76% 15%;
+
+    --secondary: 217 50% 20%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 217 50% 20%;
+    --muted-foreground: 220 14% 70%;
+
+    --accent: 217 50% 25%;
+    --accent-foreground: 220 14% 96%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 50% 20%;
+    --input: 217 50% 20%;
+    --ring: 220 14% 80%;
+
+    --sidebar-background: 217 76% 10%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 220 14% 96%;
+    --sidebar-primary-foreground: 217 76% 15%;
+    --sidebar-accent: 217 50% 20%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 217 50% 20%;
+    --sidebar-ring: 220 14% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-xl border border-border;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-elevated-hover {
+    @apply card-elevated transition-all duration-300;
+  }
+
+  .card-elevated-hover:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
